@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            Advance CCTV Analyzer
+        </div>
+        <nav>
+            <ul>
+            <li><a href="/index">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="intro"><p>Welcome to the video analyzer website. Here you can upload a video and get information about its duration, width, height and frames per second.</p>
+            <a href="{{ url_for('upload') }}"><div id="button">Upload</div></a>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
