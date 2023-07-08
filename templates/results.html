@@ -2,18 +2,20 @@
 <html>
 <head>
     <title>Video Analyzer - Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultStyle.css') }}">
 </head>
 <body>
-    <h1>Video Analyzer - Results</h1>
-    <p>Here are the results of your video analysis:</p>
-    <ul>
-        <li>Duration: {{ duration }} seconds</li>
-        <li>Width: {{ width }} pixels</li>
-        <li>Height: {{ height }} pixels</li>
-        <li>Frames per second: {{ fps }}</li>
-    </ul>
-    <a href="{{ url_for('index') }}">Go back to home page</a>
+    <main>    
+        <h1>Video Analyzer - Results</h1>
+        <p>Here are the results of your video analysis:</p>
+        <ul>
+            <li>Duration: {{ duration }} seconds</li>
+            <li>Width: {{ width }} pixels</li>
+            <li>Height: {{ height }} pixels</li>
+            <li>Frames per second: {{ fps }}</li>
+        </ul>
+        <a href="{{ url_for('index') }}">Go back to home page</a>
+    </main>
 </body>
 </html>
 

@@ -2,14 +2,35 @@
 <html>
 <head>
     <title>Video Analyzer - Upload</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='uploadStyle.css') }}">
 </head>
 <body>
-    <h1>Video Analyzer - Upload</h1>
-    <p>Please choose a video file to upload and analyze.</p>
-    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
-        <input type="file" name="video" accept="video/*" required>
-        <input type="submit" value="Upload and analyze">
-    </form>
+    <header>
+        <div class="logo">
+            Advance CCTV Analyzer
+        </div>
+        <nav>
+            <ul>
+            <li><a href="/index">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Select - Upload - Analyse</h1>
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*" required>
+            <input type="submit" value="Upload and analyze">
+            <select name = "searchKey" id="searchKey">
+                <option value="#">Missing TV/Monitor</option>
+                <option value="#">Missing Desk</option>
+                <option value="#">Missing chair"></option>
+                <option value="#">Room occupied by 2 or more</option>
+                <option value="#">Missing TV/Monitor</option>
+            </select>
+
+        </form>
+    </main>
 </body>
 </html>
