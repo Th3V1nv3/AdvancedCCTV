@@ -6,7 +6,6 @@
     <title>CCTV Analyzer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -21,7 +20,6 @@
         </nav>
     </header>
     <main>
-        
         <section id="intro">
             <h1>Welcome</h1>
             <p>We at ,<span>ACA</span> have realized that analysing hours and hours CCTV results in a lot of problems caused by</p>
@@ -31,12 +29,9 @@
                 <li>The human eye can miss important details</li>
                 </ul>
             <a href="{{ url_for('upload') }}" id="upload-button">Upload Video</a>
-            <a href="{{ url_for('history') }}" id="upload-button">Upload Video</a>
+            <a href="{{ url_for('history') }}" id="history-button">View Video History</a>
         </section>
         <img src="{{url_for('static', filename = 'feature.png')}}" alt="two people with big margnifying class" class="feature-img">
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Analyzer - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultStyle.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            Advance CCTV Analyzer
+        </div>
+        <nav>
+            <ul>
+            <li><a href="/index">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>    
+        <h1>Analyzed Results</h1>
+        <section class="results">
+            <table>
+                <tr>
+                  <td>Video name</td>
+                  <td>{{ videoName }}</td>
+                </tr>
+                <tr>
+                  <td>Duration</td>
+                  <td>{{ duration }} secods</td>
+                </tr>
+                <tr>
+                  <td>Start time</td>
+                  <td>{{ height }}</td>
+                </tr>
+                <tr>
+                  <td>Search key</td>
+                  <td> {{ searchKey }}</td>
+                </tr>
+                <tr>
+                    <td>Accuracy</td>
+                    <td> {{ accuracy }}%</td>
+                  </tr>
+              </table>
+              
+            <a href="{{ url_for('index') }}" class="button more">More</a>
+            
+        </section>
+        <a href="{{ url_for('index') }}" class="button home">Go back to home page</a>
+    </main>
+</body>
+</html>
+

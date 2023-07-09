@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import moviepy.editor as mp # this is a library for working with videos
+import random
 
 app = Flask(__name__)
 app.jinja_env.add_extension ('jinja2.ext.loopcontrols')
@@ -23,7 +24,8 @@ class Metadata(db.Model):
         duration = db.Column(db.String(16), nullable=False)
         startTime = db.Column(db.String(16), nullable=False)
         videoName = db.Column(db.String(200), nullable=False)
-        searchKey = db.Column(db.Float, nullable=False)
+        searchKey = db.Column(db.String(100), nullable=False)
+        accuracy = db.Column(db.Float, nullable=False)
 
         def __repr__(self):
             return f'Matadata( {self.user_name}, {self.password})'
@@ -40,20 +42,25 @@ def upload():
     if request.method == 'POST':
         # get the uploaded file from the form
         video = request.files['video']
+        searchKey = request.form.get("searchKey")
         # save the video to a temporary location
+        videoName = video.filename
         video.save('temp.mp4')
         # load the video using moviepy
         clip = mp.VideoFileClip('temp.mp4')
         # get the duration and other information of the video
         duration = clip.duration
-        startTime = clip.start
-        width = clip.w
-        height = clip.h
-        fps = clip.fps
+        startTime = str(random.randint(0,59)) + ":" + str(random.randint(0, 59))
+        accuracy = 94
 
-        metadata = Metadata(user_id = 1 , duration = duration , startTime = startTime , videoName = "testeName 123" , )
+        metadata = Metadata(user_id = 1 , duration = "duration" , startTime = startTime , videoName = videoName ,searchKey = searchKey ,accuracy = accuracy)
+        #with app.app_context():
+            #db.create_all()
+            #db.session.add(metadata)
+            #db.session.commit()
+
         # render the results page with the video information
-        return render_template('results.html', duration=duration, width=width, height=height, fps=fps)
+        return render_template('results.html', duration = duration , startTime = startTime , videoName = videoName ,searchKey = searchKey , accuracy = accuracy)
     else:
         # render the upload page with a form to upload a video
         return render_template('upload.html')
