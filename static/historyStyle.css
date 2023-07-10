@@ -7,13 +7,10 @@ html{
   height: 100%;
 }
 body {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
-  background-image: url(upload-wave.svg);
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  color: white;
   text-align: center;
 }
 
@@ -34,6 +31,7 @@ nav{
   margin-top: -17px;
   font-weight: bolder;
   font-size: x-large;
+  color: white;
 }
 
 nav ul {
@@ -65,20 +63,20 @@ nav a {
 }
 main{
   width: 100%;
-  height: 80%;
 }
 
 h1{
   font-family: Arial, Helvetica, sans-serif;
-  color: #1a1a1a;
+  color: #00bfff;
 }
 
 table {
   border-collapse: collapse;
-  width: 40%;
+  width: 50%;
   margin-top: 50px;
   font-weight: bold;
   font-size: 20px;
+  color:white;
   font-family: 'Courier New', Courier, monospace;
   margin: auto;
 }
@@ -88,16 +86,18 @@ td {
 }
 
 tr{
-  background-color: rgb(26, 26, 26, .3);
+  background-color: rgba(14, 121, 156, 0.1);
+  text-overflow: ellipsis;
 }
 
 tr:nth-child(even) {
-  background-color: rgb(26, 26, 26, .8);
+  background-color: rgb(211, 211, 211 , .8);
 }
 
 #section{
 margin: auto;
 margin-top: 20px;
+width: 100%;
 }
 ul{
 list-style: none;
@@ -122,14 +122,16 @@ font-family: Arial, Helvetica, sans-serif;
     margin-top: 50px;
     border-radius: 10px;
     text-decoration: none;
-    background-color: rgba(26, 26, 26);
+    background-color: #00bfff;
     color: #fff;
 }
 
 .more{
-  background-color: rgba(26, 26, 26,0.5);
+  background-color: rgb(0, 191, 255 , 0.5);
   margin-top: 25px;
+  margin-bottom: 25px;
 }
-.home{
-  margin-top: 25px;
+.divider{
+  height: 50px;
+  width: 100%;
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Video Analyzer - Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='resultStyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='historyStyle.css') }}">
 </head>
 <body>
     <header>
@@ -11,43 +11,43 @@
         </div>
         <nav>
             <ul>
-            <li><a href="/index">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>    
-        <h1>Analyzed Results</h1>
-        <section class="results">
-            <table>
-                <tr>
-                  <td>Video name</td>
-                  <td>{{ videoName }}</td>
-                </tr>
-                <tr>
-                  <td>Duration</td>
-                  <td>{{ duration }} secods</td>
-                </tr>
-                <tr>
-                  <td>Start time</td>
-                  <td>{{ height }}</td>
-                </tr>
-                <tr>
-                  <td>Search key</td>
-                  <td> {{ searchKey }}</td>
-                </tr>
-                <tr>
-                    <td>Accuracy</td>
-                    <td> {{ accuracy }}%</td>
-                  </tr>
-              </table>
-              
-            <a href="{{ url_for('index') }}" class="button more">More</a>
-            
+        <h1>Video History</h1>
+        {% for metadata in metadataList %}
+            <section class="results">
+                <table>
+                    <tr>
+                    <td>Video name</td>
+                    <td>{{ metadata.videoName }}</td>
+                    </tr>
+                    <tr>
+                    <td>Duration</td>
+                    <td>{{ metadata.duration }} secods</td>
+                    </tr>
+                    <tr>
+                    <td>Start time</td>
+                    <td>{{ metadata.startTime }}</td>
+                    </tr>
+                    <tr>
+                    <td>Search key</td>
+                    <td> {{ metadata.searchKey }}</td>
+                    </tr>
+                    <tr>
+                        <td>Accuracy</td>
+                        <td> {{ metadata.accuracy }}%</td>
+                    </tr>
+                </table>
+                <a href="{{ url_for('index') }}" class="button more">Download results</a>
+            {% endfor %}
         </section>
-        <a href="{{ url_for('index') }}" class="button home">Go back to home page</a>
     </main>
+    <div class="divider"></div>
 </body>
 </html>
 
