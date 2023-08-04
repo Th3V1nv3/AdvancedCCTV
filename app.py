@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,make_response
+from flask import Flask, render_template, request,make_response , redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 import moviepy.editor as mp # this is a library for working with videos
 import random
@@ -32,6 +32,7 @@ class Metadata(db.Model):
         def __repr__(self):
             return f'Matadata( {self.user_name}, {self.password})'
         
+rout = 0
 
 @app.route('/')
 def index():
@@ -101,6 +102,37 @@ def download(id):
     response.headers["Content-Type"] = "application/pdf"
     response.headers["Content-Disposition"] = "attachment; filename=output.pdf"
     return response
+
+@app.route('/login/<int:route>')
+def login(route):
+ 
+    return render_template('login.html' , route = route)
+
+@app.route('/createAccount')
+def createAccount():
+
+    return render_template('createAccount.html')
+
+   
+@app.route('/verifyLogin' , methods=['GET', 'POST'])
+def verifyLogin():
+    username = request.form["username"]
+    password = request.form["password"]
+    route = request.form["route"]
+
+    #user = User.query.filter_by(user_name=username).first()
+    print("the route um is - "+route)
+    if route == '1':
+        return redirect(url_for('upload'))
+    else :
+        return redirect(url_for('history'))
+
+@app.route('/accountCreation' , methods=['GET', 'POST'])
+def accountCreation():
+    username = request.form["username"]
+    password = request.form["password"]
+
+    #user = User.query.filter_by(user_name=username).first()
     
-
-
+ 
+    return redirect('/login/'+str(rout))

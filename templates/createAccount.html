@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Analyzer - Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginStyle.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            Advance CCTV Analyzer
+        </div>
+    </header>
+    <main>
+        <div class="login-background">
+            <h1>Create Account</h1>
+            <form action="/accountCreation" method="post">
+                <input type="text" name="username" placeholder="USERNAME" required>
+                <input type="text" name="password" placeholder="PASSWORD" required>
+                <input type="text" name="password" placeholder="CONFIRM PASSWORD" required>
+                <input type="submit" value="Create"> 
+                
+            </form>
+        </div>
+    </main>
+</body>
+</html>

@@ -43,7 +43,7 @@
                         <td> {{ metadata.accuracy }}%</td>
                     </tr>
                 </table>
-                <a href="{{ url_for('index') }}" class="button more">Download results</a>
+                <a href="/download/{{ metadata.id }}" class="button more">Download results</a>
             {% endfor %}
         </section>
     </main>
